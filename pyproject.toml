@@ -1,0 +1,88 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ai-product-research-agent"
+version = "0.1.0"
+description = "A collaborative AI agent system for patent research and innovation forecasting"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Mukku27", email = "vemulapallimukesh@gmail.com" }
+]
+keywords = [
+    "ai",
+    "patents",
+    "research",
+    "crewai",
+    "ollama",
+    "opensearch"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "crewai>=0.126.0",
+    "opensearch-py>=2.8.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+    "tiktoken>=0.5.0",
+    "langchain-core>=0.1.0",
+    "langchain-ollama>=0.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.1.0",
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "mypy>=1.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Mukku27/ai-product-research-agent"
+Repository = "https://github.com/Mukku27/ai-product-research-agent"
+Documentation = "https://github.com/Mukku27/ai-product-research-agent#readme"
+"Bug Tracker" = "https://github.com/Mukku27/ai-product-research-agent/issues"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[tool.mypy]
+python_version = "3.10"
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+strict_optional = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --cov=ai_product_research_agent"
+testpaths = [
+    "tests",
+]
+
+[project.scripts]
+patent-research = "ai_product_research_agent.cli:main"
