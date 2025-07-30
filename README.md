@@ -68,8 +68,11 @@ The system is built with a layered architecture consisting of:
 
 5. **Pull required models:**
    ```bash
-   docker exec -it ollama ollama run deepseek-r1:1.5b          
-   docker exec -it ollama ollama run nomic-embed-text # For embeddings
+   # Language Model for analysis and reasoning
+   docker exec -it ollama ollama run deepseek-r1:1.5b
+   
+   # Embedding Model for semantic search
+   docker exec -it ollama ollama run nomic-embed-text
    ```
 
 6. **Start OpenSearch:**  
@@ -147,7 +150,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [CrewAI](https://github.com/joaomdmoura/crewAI) for the multi-agent framework
-- [Ollama](https://ollama.com/) for local LLM capabilities
-- [OpenSearch](https://opensearch.org/) for powerful search functionality
+- [CrewAI](https://github.com/joaomdmoura/crewAI) - Multi-agent framework
+- [Ollama](https://ollama.com/) - Local LLM capabilities
+  - [DeepSeek-R1 1.5B](https://ollama.com/library/deepseek-r1:1.5b) - Core reasoning and analysis model
+  - [Nomic Embed Text](https://ollama.com/library/nomic-embed-text:latest) - Text embedding model for semantic search
+- [OpenSearch](https://opensearch.org/) - Search functionality
 
