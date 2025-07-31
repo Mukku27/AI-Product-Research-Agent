@@ -154,9 +154,7 @@ def create_patent_analysis_crew(model_name="llama3"):
     
     print("model found and tested successfully")
 
-    # Fix the model format by adding the 'ollama/' prefix
-    if not model_name.startswith("ollama/"):
-        model_name = f"ollama/{model_name}"
+    
 
     llm = OllamaLLM(model=model_name, temperature=0.2)
 
